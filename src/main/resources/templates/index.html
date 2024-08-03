@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Переводчик</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 50px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Переводчик</h1>
+    <form action="/translate" method="post">
+        <div class="form-group">
+            <label for="text">Введите текст для перевода:</label>
+            <textarea class="form-control" id="text" name="text" rows="5"></textarea>
+        </div>
+        <label for="language">Выберите язык:</label>
+        <select name="language" id="language" required>
+            <option th:each="lang : ${languages}"
+                    th:value="${lang.getKey()}"
+                    th:text="${lang.getValue()}"
+                    th:selected="${lang.key == selectedLanguage}"></option>
+        </select><br><br>
+        <button type="submit" class="btn btn-primary btn-block">Перевести</button>
+    </form>
+
+    <div class="result">
+        <h5>Переведенный текст:</h5>
+        <p th:text="${translatedText}"></p>
+    </div>
+</div>
+</body>
+</html>
