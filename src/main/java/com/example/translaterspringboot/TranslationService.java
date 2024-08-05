@@ -42,9 +42,14 @@ public class TranslationService {
 
         try {
             String[] texts = StringToWordArray(request.getInputText());
-
+            int i = 0;
             for (String text : texts) {
+                if (i == 19) {
+                    Thread.sleep(1000);
+                    i = 0;
+                }
                 futures.add(executorService.submit(() -> translateWord(text, request.getTargetLanguage())));
+                i++;
             }
 
             for (Future<String> future : futures) {
@@ -171,27 +176,6 @@ public class TranslationService {
 
     private String[] StringToWordArray(String inputText) {
         return inputText.split(" "); // Разделение текста на слова
-    }
-
-
-    // Метод для получения всех переводов
-    public List<Translation> getAllTranslations() {
-        return translationRepository.findAll();
-    }
-
-    // Метод для сохранения нового перевода
-    public Translation saveTranslation(Translation translation) {
-        return translationRepository.save(translation);
-    }
-
-    // Метод для получения перевода по ID
-    public Translation getTranslationById(Long id) {
-        return translationRepository.findById(id).orElse(null);
-    }
-
-    // Метод для удаления перевода по ID
-    public void deleteTranslation(Long id) {
-        translationRepository.deleteById(id);
     }
 
 }

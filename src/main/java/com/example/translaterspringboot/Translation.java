@@ -30,6 +30,14 @@ public class Translation {
 
     // Конструкторы, геттеры и сеттеры
     public Translation() {}
+    public Translation(Long id, String userIp, String inputText, String translatedText, String targetLanguage, LocalDateTime timestamp) {
+        this.id = id;
+        this.userIp = userIp;
+        this.inputText = inputText;
+        this.translatedText = translatedText;
+        this.targetLanguage = targetLanguage;
+        this.timestamp = timestamp;
+    }
 
     public Long getId() {
         return id;
