@@ -41,8 +41,13 @@ Translation Service - это веб-приложение, разработанн
 - **UN** - Unsigned (без знака)
 - **ZF** - Zero Fill (добавление нулей в начале)
 - **AI** - Auto Increment (автоинкремент)
-- **G** - Generated (сгенерированное значение)/
-  Для создания таблицы можете использовать команду:
+- **G** - Generated (сгенерированное значение)
+
+### Значения по умолчанию
+
+- Поле `timestamp` по умолчанию устанавливается в `CURRENT_TIMESTAMP`, что означает, что оно будет автоматически заполнено текущей датой и временем при создании новой записи.
+- Поля могут принимать значение `NULL`, если это не указано как обязательное (NN).
+### Для создания таблицы можете использовать команду:
   ```
   CREATE TABLE translation_requests (
     id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -51,11 +56,6 @@ Translation Service - это веб-приложение, разработанн
     translated_text VARCHAR(255),
     target_language VARCHAR(255) NOT NULL,
     timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);```
-
-### Значения по умолчанию
-
-- Поле `timestamp` по умолчанию устанавливается в `CURRENT_TIMESTAMP`, что означает, что оно будет автоматически заполнено текущей датой и временем при создании новой записи.
-- Поля могут принимать значение `NULL`, если это не указано как обязательное (NN).
 ## Установка
 
 1. Убедитесь, что у вас установлены [Java JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) (минимум 11 версии) и [Apache Maven](https://maven.apache.org/download.cgi).
