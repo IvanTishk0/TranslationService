@@ -27,8 +27,8 @@ Translation Service - это веб-приложение, разработанн
 |------------------|---------------|-----------------------------|--------------------------------------------------|
 | `id`             | BIGINT        | PK, NN, AI                  | Уникальный идентификатор запроса на перевод.     |
 | `user_ip`        | VARCHAR(255)  | NN                          | IP-адрес пользователя, который создал запрос.   |
-| `input_text`     | VARCHAR(255)  | NN                          | Исходный текст, который нужно перевести.        |
-| `translated_text` | VARCHAR(255)  |                           | Переведенный текст.                              |
+| `input_text`     | VARCHAR(1000) | NN                          | Исходный текст, который нужно перевести.        |
+| `translated_text` | VARCHAR(1000) |                           | Переведенный текст.                              |
 | `target_language` | VARCHAR(255)  | NN                          | Язык, на который нужно перевести текст.          |
 | `timestamp`      | TIMESTAMP     | NN, DEFAULT CURRENT_TIMESTAMP| Дата и время запроса на перевод.                 |
 
@@ -52,8 +52,8 @@ Translation Service - это веб-приложение, разработанн
   CREATE TABLE translation_requests (
     id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     user_ip VARCHAR(255) NOT NULL,
-    input_text VARCHAR(255) NOT NULL,
-    translated_text VARCHAR(255),
+    input_text VARCHAR(1000) NOT NULL,
+    translated_text VARCHAR(1000),
     target_language VARCHAR(255) NOT NULL,
     timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 ```

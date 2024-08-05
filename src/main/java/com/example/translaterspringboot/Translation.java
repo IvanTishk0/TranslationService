@@ -16,10 +16,10 @@ public class Translation {
     @Column(name = "user_ip")
     private String userIp;
 
-    @Column(name = "input_text")
+    @Column(name = "input_text", length = 1000)
     private String inputText;
 
-    @Column(name = "translated_text")
+    @Column(name = "translated_text", length = 1000)
     private String translatedText;
 
     @Column(name = "target_language")
