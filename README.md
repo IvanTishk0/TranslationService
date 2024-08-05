@@ -41,7 +41,7 @@ Translation Service - это веб-приложение, разработанн
 - **UN** - Unsigned (без знака)
 - **ZF** - Zero Fill (добавление нулей в начале)
 - **AI** - Auto Increment (автоинкремент)
-- **G** - Generated (сгенерированное значение)
+- **G** - Generated (сгенерированное значение)/
   Для создания таблицы можете использовать команду:
   ```
   CREATE TABLE translation_requests (
@@ -50,8 +50,7 @@ Translation Service - это веб-приложение, разработанн
     input_text VARCHAR(255) NOT NULL,
     translated_text VARCHAR(255),
     target_language VARCHAR(255) NOT NULL,
-    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
-```
+    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);```
 
 ### Значения по умолчанию
 
