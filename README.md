@@ -47,6 +47,16 @@ Translation Service - это веб-приложение, разработанн
 
 - Поле `timestamp` по умолчанию устанавливается в `CURRENT_TIMESTAMP`, что означает, что оно будет автоматически заполнено текущей датой и временем при создании новой записи.
 - Поля могут принимать значение `NULL`, если это не указано как обязательное (NN).
+### Для создания таблицы можете использовать команду:
+  ```
+  CREATE TABLE translation_requests (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    user_ip VARCHAR(255) NOT NULL,
+    input_text VARCHAR(255) NOT NULL,
+    translated_text VARCHAR(255),
+    target_language VARCHAR(255) NOT NULL,
+    timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+```
 ## Установка
 
 1. Убедитесь, что у вас установлены [Java JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) (минимум 11 версии) и [Apache Maven](https://maven.apache.org/download.cgi).
