@@ -1,6 +1,5 @@
 package com.example.translaterspringboot.controller;
 
-
 import com.example.translaterspringboot.TranslationRequest;
 import com.example.translaterspringboot.TranslationResponse;
 import com.example.translaterspringboot.TranslationService;
@@ -26,12 +25,13 @@ public class TextInputController {
 
         // Устанавливаем язык по умолчанию, если еще не выбран
         if (language == null) {
-            language = "en"; // Задаем язык по умолчанию
+            language = "en";
         }
 
         model.addAttribute("languages", languages);
         model.addAttribute("selectedLanguage", language); // Передаем выбранный язык
-        return "index"; // Имя вашего шаблона
+        model.addAttribute("inputText", ""); // Изначально поле ввода пустое
+        return "index";
     }
 
     @PostMapping("/translate")
@@ -44,11 +44,10 @@ public class TextInputController {
         translationRequest.setInputText(text);
         translationRequest.setTargetLanguage(language);
         TranslationResponse translatedText = translationService.translate(translationRequest);
-
         model.addAttribute("languages", languages);
         model.addAttribute("selectedLanguage", language); // Передаем выбранный язык
         model.addAttribute("translatedText", translatedText.getTranslatedText());
+        model.addAttribute("inputText", text); // Сохраняем введенный текст для следующего запроса
         return "index";
     }
-
 }

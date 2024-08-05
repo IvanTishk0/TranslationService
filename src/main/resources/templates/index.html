@@ -24,7 +24,7 @@
     <form action="/translate" method="post">
         <div class="form-group">
             <label for="text">Введите текст для перевода:</label>
-            <textarea class="form-control" id="text" name="text" rows="5"></textarea>
+            <textarea class="form-control" id="text" name="text" rows="5" th:text="${inputText}"></textarea>
         </div>
         <label for="language">Выберите язык:</label>
         <select name="language" id="language" required>
