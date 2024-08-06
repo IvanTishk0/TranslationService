@@ -45,7 +45,7 @@ public class TranslationService {
             int i = 0;
             for (String text : texts) {
                 if (i == 19) {
-                    Thread.sleep(1000);
+                    Thread.sleep(1001);
                     i = 0;
                 }
                 futures.add(executorService.submit(() -> translateWord(text, request.getTargetLanguage())));
